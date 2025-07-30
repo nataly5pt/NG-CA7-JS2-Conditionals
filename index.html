@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bear Ninja Hunter</title>
+  <meta name="author" content="Nataly P">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0ff;
+      padding: 30px;
+    }
+    .output {
+      margin-top: 30px;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bear Ninja Hunter Game</h1>
+  <p>Check the results below after playing!</p>
+  <div class="output" id="gameResult"></div>
+
+  <script>
+    // Ask for player's name
+    let playerName = prompt("Welcome to Bear Ninja Hunter!\nPlease enter your name:");
+    alert("Hello " + playerName + "! Let's play Bear Ninja Hunter!");
+
+    // Ask for player's choice
+    let playerChoice = prompt("Please choose Bear, Ninja, or Hunter:");
+    let computerChoice = "Bear"; // hardcoded for CA7
+
+    // Prepare message
+    let resultMessage = playerName + " chose " + playerChoice + ".\n";
+    resultMessage += "Computer chose " + computerChoice + ".\n";
+
+    // Game logic using if/else
+    if (playerChoice === "Bear") {
+      resultMessage += "It's a tie!";
+    } else if (playerChoice === "Ninja") {
+      resultMessage += "Bear beats Ninja. Computer wins!";
+    } else if (playerChoice === "Hunter") {
+      resultMessage += "Hunter beats Bear. " + playerName + " wins!";
+    } else {
+      resultMessage += "Invalid choice!";
+    }
+
+    // Also use switch to log result to console
+    switch (playerChoice) {
+      case "Bear":
+        console.log("Tie Game!");
+        break;
+      case "Ninja":
+        console.log("Computer wins.");
+        break;
+      case "Hunter":
+        console.log("Player wins.");
+        break;
+      default:
+        console.log("Invalid input.");
+    }
+
+    // Output result to HTML
+    document.getElementById("gameResult").innerText = resultMessage;
+  </script>
+</body>
+</html>
